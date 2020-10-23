@@ -1,4 +1,3 @@
 import './index.scss';
 
-export { default as Button } from './components/Button';
-export { default as TSButton } from './components/TSButton/TSButton';
+export { default as Foo } from './components/Foo/Foo';
