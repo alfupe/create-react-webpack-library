@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { Component, useState } from 'react';
 import './foo.scss';
 
 const Foo = ({ message = 'Hello world' }) => {

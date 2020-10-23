@@ -1,14 +1,8 @@
 import React from 'react';
-import './App.css';
-import { TSButton, Button } from '@timingsense/ts-uikit';
+import { Foo } from 'crereweli';
 
 function App() {
-  return (
-    <div className="App">
-      <Button message={'holi'} />
-      <TSButton message={'holi TS'} />
-    </div>
-  );
+  return <Foo message={'holi'} />;
 }
 
 export default App;
