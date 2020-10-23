@@ -26,7 +26,6 @@ module.exports = {
     const alias = {
       ...config.resolve.alias,
       components: path.resolve(__dirname, '../src/components'),
-      '_theme-builder': path.resolve(__dirname, '../_theme-builder'),
     };
 
     // Return the altered config
