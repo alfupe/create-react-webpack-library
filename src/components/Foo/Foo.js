@@ -1,50 +1,14 @@
-import React from 'react'
-import './button.scss'
+import React, { useState } from 'react';
+import './foo.scss';
 
-import * as ReactIs from 'react-is';
-const deepClone = require('clone-deep')
+const Foo = ({ message = 'Hello world' }) => {
+  const [active, setActive] = useState(true);
 
-const Button = ({message = 'Hello world'}) => {
-    return (
-        <>
-        <pre>{JSON.stringify(ReactIs.isElement(<div />))}</pre>
-        <button>{deepClone(message)}</button>
-        </>
-    )
-}
-
-export default Button
-
-/*import {Button as AntButton} from 'antd';
-
-class TSUIComponent extends React.Component {
-
+  return (
+    <button onClick={(event) => setActive(!active)}>
+      {active ? message : 'off'}
+    </button>
+  );
 };
 
-class TSUIComponentAntWrapper extends TSUIComponent {
-
-    wrappedComponent = null;
-    passThruProps = [];
-
-    extractPassThruProps() {
-        return Object.assign({}, ...this.passThruProps.map(prop => ({[prop]: this.props[prop]})));
-    }
-
-    render() {
-        return React.createElement(this.wrappedComponent, this.extractPassThruProps());
-    }
-
-}
-
-class TSUIComponentAntButton extends TSUIComponentAntWrapper {
-    wrappedComponent = AntButton;
-    passThruProps = ['onClick'];
-}
-
-const TSButton = ({message = 'Hello typescript'}) => {
-    return (
-        <TSUIComponentAntButton message={message} />
-    )
-}
-
-export default TSButton*/
+export default Foo;
