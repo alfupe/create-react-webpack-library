@@ -3,13 +3,16 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: {
+    index: './src/index.js',
+    'index.min': './src/index.js',
+  },
   externals: {
     react: 'react',
     'react-dom': 'react-dom',
   },
   output: {
-    filename: 'index.js',
+    filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
     library: '',
     libraryTarget: 'commonjs',
@@ -34,11 +37,13 @@ module.exports = {
       },
     ],
   },
+  devtool: 'source-map',
   optimization: {
     minimize: true,
     minimizer: [
       new TerserPlugin({
-        test: /\.js(\?.*)?$/i,
+        sourceMap: false,
+        test: /\.min\.js(\?.*)?$/i,
         parallel: true,
       }),
     ],
